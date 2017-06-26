@@ -96,7 +96,7 @@ class PrestoClient {
 
         // check that query is completed, and that we don't start
         // a new query before the previous is finished
-        if ($query = '') {
+        if ($query == '') {
             return false;
         }
 
