@@ -24,17 +24,15 @@ $presto = new PrestoClient("http://localhost:8080/v1/statement","hive");
 
 //Prepare your sql request
 try {
-	$presto->Query("select count(*) from hive.default.my_table");
+	$presto->query("select count(*) from hive.default.my_table");
 } catch (PrestoException $e) {
 	var_dump($e);
 }
 
 //Execute the request and build the result
-$presto->WaitQueryExec();
+$presto->waitQueryExec();
 
 //Get the result
-$answer = $presto->GetData();
+$answer = $presto->getData();
 
 var_dump($answer);
-
-?>
